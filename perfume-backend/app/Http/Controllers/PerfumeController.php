@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePerfumeRequest;
 use App\Http\Requests\UpdatePerfumeRequest;
+use App\Models\Brand;
 use App\Models\Perfume;
 
 class PerfumeController extends Controller
@@ -23,7 +24,8 @@ class PerfumeController extends Controller
      */
     public function create()
     {
-        //
+        $brands = Brand::all();
+        return view('admin.perfumes.index',compact('brands'));
     }
 
     /**
@@ -31,7 +33,15 @@ class PerfumeController extends Controller
      */
     public function store(StorePerfumeRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        $validatedData['brand_id'] = $request->input('brand_id');
+
+        $newPerfume = new Perfume();
+        $newPerfume->fill($validatedData);
+        $newPerfume->save();
+
+        return redirect()->route('admin.perfumes.index', $newPerfume->id);
     }
 
     /**
@@ -39,7 +49,7 @@ class PerfumeController extends Controller
      */
     public function show(Perfume $perfume)
     {
-        //
+        return view('admin.perfumes.show', compact('perfumes'));
     }
 
     /**
@@ -47,7 +57,7 @@ class PerfumeController extends Controller
      */
     public function edit(Perfume $perfume)
     {
-        //
+        return view('admin.perfumes.edit', compact('perfumes'));
     }
 
     /**
@@ -55,7 +65,12 @@ class PerfumeController extends Controller
      */
     public function update(UpdatePerfumeRequest $request, Perfume $perfume)
     {
-        //
+        $request->validated();
+        
+        $perfume->update($request->all());
+        $perfume->save();
+
+        return view('admin.perfumes.show', compact('perfume'));
     }
 
     /**
@@ -63,6 +78,8 @@ class PerfumeController extends Controller
      */
     public function destroy(Perfume $perfume)
     {
-        //
+        $perfume->delete();
+
+        return redirect()->route('admin.perfumes.index');
     }
 }
