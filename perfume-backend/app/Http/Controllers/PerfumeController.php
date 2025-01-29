@@ -14,7 +14,11 @@ class PerfumeController extends Controller
      */
     public function index()
     {
+        
         $perfumes = Perfume::all();
+        
+        
+        // $brands = Brand::with('perfumes')->where('id', '=', $id)->first();
 
         return view('admin.perfumes.index', compact('perfumes'));
     }

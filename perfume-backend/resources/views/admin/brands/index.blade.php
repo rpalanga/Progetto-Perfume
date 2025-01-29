@@ -12,7 +12,7 @@
         @endforeach
 
     </ul>
-    <a href="{{route('dashboard')}}" class=" btn-info">Torna alla Dashboard</a>
+    <a class="text-decoration-none" href="{{route('dashboard')}}" class=" btn-info">Torna alla Dashboard</a>
 </div>
 
 @endsection
