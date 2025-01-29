@@ -11,7 +11,7 @@ class UpdateBrandRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class UpdateBrandRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|max:200',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'devi inserire il nome della tipologia',
+            'name.max' => 'devi inserire al massimo :max caratteri',
+        ];
+    }
+
 }

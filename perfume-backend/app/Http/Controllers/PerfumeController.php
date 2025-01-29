@@ -13,7 +13,9 @@ class PerfumeController extends Controller
      */
     public function index()
     {
-        //
+        $perfumes = Perfume::all();
+
+        return view('admin.perfumes.index', compact('perfumes'));
     }
 
     /**
