@@ -53,7 +53,7 @@ class PerfumeController extends Controller
      */
     public function show(Perfume $perfume)
     {
-        return view('admin.perfumes.show', compact('perfumes'));
+        return view('admin.perfumes.show', compact('perfume'));
     }
 
     /**
@@ -61,7 +61,7 @@ class PerfumeController extends Controller
      */
     public function edit(Perfume $perfume)
     {
-        return view('admin.perfumes.edit', compact('perfumes'));
+        return view('admin.perfumes.edit', compact('perfume'));
     }
 
     /**

@@ -17,6 +17,6 @@ class DashboardController extends Controller
         $brands = Brand::all();
         $perfumes = Perfume::all();
 
-        return view('admin.dashboard', compact('user','brand','perfume'));
+        return view('admin.dashboard', compact('user','brands','perfumes'));
     }
 }

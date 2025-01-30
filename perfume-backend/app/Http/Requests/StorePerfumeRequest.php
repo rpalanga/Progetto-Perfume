@@ -24,7 +24,7 @@ class StorePerfumeRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'img' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img' => 'nullable|max:2048',
             'brand_id' => 'required|exists:brands,id',
         ];
     }
@@ -37,8 +37,8 @@ class StorePerfumeRequest extends FormRequest
             
             'description.string' => 'La descrizione deve essere una stringa.',
 
-            'img.image' => 'Il file deve essere un\'immagine.',
-            'img.mimes' => 'L\'immagine deve essere in formato jpeg, png, jpg, gif o svg.',
+            
+            
             'img.max' => 'L\'immagine non può superare i 2MB.',
 
             'brand_id.required' => 'È necessario selezionare un brand.',

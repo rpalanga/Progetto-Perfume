@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\PerfumeController;
 use App\Http\Controllers\ProfileController;
@@ -23,6 +24,8 @@ Route::middleware(['auth','verified'])
 ->name('admin.')
 ->prefix('admin')
 ->group( function(){
+
+    Route::get('/', [DashboardController::class, 'index']);
 
     Route::resource('perfumes', PerfumeController::class);
     Route::resource('brands',BrandController::class);

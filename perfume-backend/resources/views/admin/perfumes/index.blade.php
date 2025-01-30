@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <h1>CIao a tutti Siete Nei Profumi</h1>
+    <h1 class=" text-center py-3 fw-bolder">Catalogo dei Profumi</h1>
     <div class="container mt-4">
         <div class="row">
             @foreach ($perfumes as $perfume)
@@ -11,7 +11,10 @@
                 <div class="col-md-4">
                     <div class="card mb-4 shadow-sm">
                         @if ($perfume->img)
+                        <a href="{{route('admin.perfumes.show',$perfume->id)}}">
                             <img src="{{ $perfume->img }}" class="card-img-top" alt="{{ $perfume->name }}">
+
+                        </a>
                         @else
                             <img src="https://via.placeholder.com/300" class="card-img-top" alt="Immagine non disponibile">
                         @endif
