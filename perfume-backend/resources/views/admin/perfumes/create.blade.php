@@ -5,7 +5,7 @@
 <div class="container">
     <h1>Inserisci un nuovo Profumo</h1>
 
-    <form action="{{route('admin.perfumes.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('admin.perfumes.store')}}" method="POST" enctype="multipart/form-data" >
         @csrf
 
         <div class="mb-2">
@@ -20,8 +20,19 @@
         </div>
 
         <div class="mb-2">
+            <label for="description" class="form-label">Descrizione: </label>
+            <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description"
+              value="{{ old('description') }}" >
+            @error('description')
+            <div class="invalid-feedback">
+              {{$message}}
+            </div>
+            @enderror
+        </div>
+
+        <div class="mb-2">
             <label for="img" class="form-label">Immagine: </label>
-            <input type="file" class="form-control @error('img') is-invalid @enderror" id="img" name="img"
+            <input type="text" class="form-control @error('img') is-invalid @enderror" id="img" name="img"
               value="{{ old('img') }}">
             @error('img')
             <div class="invalid-feedback">
@@ -30,34 +41,17 @@
             @enderror
         </div>
 
-        <div class="mb-2">
-            <label for="description" class="form-label">Descrizione: </label>
-            <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description"
-              value="{{ old('description') }}" required>
-            @error('description')
-            <div class="invalid-feedback">
-              {{$message}}
-            </div>
-            @enderror
-        </div>
-
-        <!-- <div class="mb-2 form-check">
-            <input class="form-check-input" name="available" type="checkbox" value="0" id="available" {{ old('available', 1) == 0 ? 'checked' : '' }}>
-            <label class="form-check-label" for="available">
-              NON VISIBILE
-            </label>
-        </div> -->
 
         <div class="mb-3">
-            <label for="category_id" class="form-label">Seleziona il Brand</label>
-            <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id" required>
+            <label for="brand_id" class="form-label">Seleziona il Brand</label>
+            <select class="form-select @error('brand_id') is-invalid @enderror" id="brand_id" name="brand_id" required>
                 @foreach($brands as $brand)
-                    <option value="{{ $brand->id }}" {{ old('category_id') == $brand->id ? 'selected' : '' }}>
+                    <option value="{{ $brand->id }}" {{ old('brand_id') == $brand->id ? 'selected' : '' }}>
                         {{ $brand->name }}
                     </option>
                 @endforeach
             </select>
-            @error('category_id')
+            @error('brand_id')
             <div class="invalid-feedback">
                 {{ $message }}
             </div>

@@ -5,6 +5,7 @@
 <div class="container">
     <h1 class=" text-center py-3 fw-bolder">Catalogo dei Profumi</h1>
     <div class="container mt-4">
+        
         <div class="row">
             @foreach ($perfumes as $perfume)
             
@@ -29,6 +30,7 @@
         </div>
     </div>
     <a class=" btn btn-primary text-decoration-none" href="{{route('dashboard')}}" role="button">Torna alla Dashboard</a>
+    <a class="btn btn-secondary text-decoration-none" href="{{route('admin.perfumes.create')}}">Aggiungi un Nuovo Profumo</a>
 </div>
 
 @endsection

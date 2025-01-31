@@ -14,10 +14,10 @@ class PerfumeController extends Controller
      */
     public function index()
     {
-        
+
         $perfumes = Perfume::all();
-        
-        
+
+
         // $brands = Brand::with('perfumes')->where('id', '=', $id)->first();
 
         return view('admin.perfumes.index', compact('perfumes'));
@@ -29,7 +29,7 @@ class PerfumeController extends Controller
     public function create()
     {
         $brands = Brand::all();
-        return view('admin.perfumes.index',compact('brands'));
+        return view('admin.perfumes.create', compact('brands'));
     }
 
     /**
@@ -37,15 +37,17 @@ class PerfumeController extends Controller
      */
     public function store(StorePerfumeRequest $request)
     {
-        $validatedData = $request->validated();
+        // $validatedData = $request->validated();
+        
 
-        $validatedData['brand_id'] = $request->input('brand_id');
+        // // Crea un nuovo profumo con i dati validati
+        // $newPerfume = new Perfume();
+        // $newPerfume->fill($validatedData);
+        // $newPerfume->save();
+        Perfume::create($request->validated());
 
-        $newPerfume = new Perfume();
-        $newPerfume->fill($validatedData);
-        $newPerfume->save();
-
-        return redirect()->route('admin.perfumes.index', $newPerfume->id);
+        // Redirect alla lista dei profumi
+        return redirect()->route('admin.perfumes.index')->with('success', 'Perfume created successfully.');
     }
 
     /**
@@ -61,7 +63,8 @@ class PerfumeController extends Controller
      */
     public function edit(Perfume $perfume)
     {
-        return view('admin.perfumes.edit', compact('perfume'));
+        $brands = Brand::all();
+        return view('admin.perfumes.edit', compact('perfume','brands'));
     }
 
     /**
@@ -70,7 +73,7 @@ class PerfumeController extends Controller
     public function update(UpdatePerfumeRequest $request, Perfume $perfume)
     {
         $request->validated();
-        
+
         $perfume->update($request->all());
         $perfume->save();
 

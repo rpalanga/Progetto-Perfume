@@ -11,7 +11,7 @@ class StorePerfumeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class StorePerfumeRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'img' => 'nullable|max:2048',
+            'img' => 'nullable|url',
             'brand_id' => 'required|exists:brands,id',
         ];
     }

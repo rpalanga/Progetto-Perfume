@@ -24,7 +24,7 @@ class UpdatePerfumeRequest extends FormRequest
         return [
             'name' => 'sometimes|string|max:255',
             'description' => 'nullable|string',
-            'img' => 'nullable|max:2048',
+            'img' => 'nullable|url',
             'brand_id' => 'sometimes|exists:brands,id',
         ];
     }
