@@ -48,7 +48,7 @@
     
     <div id="main-cont" class="container">
       <h1 class="my-4">Elenco Profumi</h1>
-      <input v-model="searchQuery" type="text" class="form-control mb-4" placeholder="Cerca per nome..." />
+      <input v-model="searchQuery" type="text" class="form-control mb-4" placeholder="Cerca il tuo Profumo" />
       <div v-if="loading">Caricamento...</div>
       <div v-else>
         <div v-for="perfume in filteredPerfumes" :key="perfume.id">
