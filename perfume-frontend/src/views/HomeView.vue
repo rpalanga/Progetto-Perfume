@@ -46,7 +46,7 @@
   
   <div>
     
-    <div class="container">
+    <div id="main-cont" class="container">
       <h1 class="my-4">Elenco Profumi</h1>
       <input v-model="searchQuery" type="text" class="form-control mb-4" placeholder="Cerca per nome..." />
       <div v-if="loading">Caricamento...</div>
@@ -67,4 +67,11 @@ input {
   max-width: 400px;
   margin: 0 auto;
 }
+#main-cont{
+ /* display: grid; */
+ /* da guardare meglio domani  */
+
+  
+}
+
 </style>

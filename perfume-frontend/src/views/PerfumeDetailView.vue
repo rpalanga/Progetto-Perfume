@@ -36,7 +36,7 @@
 
 <template>
     <div>
-      <AppHeader />
+      
       <div class="container">
         <h1 class="my-4">{{ perfume.name }}</h1>
         <img :src="perfume.img || '/images/default.jpg'" :alt="perfume.name" class="img-fluid mb-3" />
@@ -44,7 +44,7 @@
         <p><strong>Brand:</strong> {{ perfume.brand.name }}</p>
         <router-link to="/" class="btn btn-secondary">Torna all'elenco</router-link>
       </div>
-      <AppFooter />
+      
     </div>
   </template>
   
