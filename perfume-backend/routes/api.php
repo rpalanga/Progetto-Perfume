@@ -11,3 +11,4 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/brands', [BrandController::class,'index']);
 Route::get('/perfumes', [PerfumeController::class,'index']);
+Route::get('/perfumes/{id}', [PerfumeController::class, 'show']);

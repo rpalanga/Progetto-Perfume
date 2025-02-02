@@ -26,4 +26,9 @@ class PerfumeController extends Controller
             'results' => $perfumes
         ]);
     }
+    public function show($id)
+    {
+        $perfume = Perfume::with('brand')->findOrFail($id);
+        return response()->json($perfume);
+    }
 }
