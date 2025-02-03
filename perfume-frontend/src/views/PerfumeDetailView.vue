@@ -37,8 +37,8 @@
 <template>
     <div>
       
-      <div class="container">
-        <h1 class="my-4">{{ perfume.name }}</h1>
+      <div class="container mb-4">
+        <h1 class="my-4 ">{{ perfume.name }}</h1>
         <img :src="perfume.img || '/images/default.jpg'" :alt="perfume.name" class="img-fluid mb-3" />
         <p>{{ perfume.description }}</p>
         <p><strong>Brand:</strong> {{ perfume.brand.name }}</p>
