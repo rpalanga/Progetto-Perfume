@@ -20,7 +20,7 @@
     <body class="bg-light">
     <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
         <div class="text-center mb-4">
-            <h1 class="display-4 fw-bold">Benvenuto nella sezione Dedicata all'amministazione di Perfume App</h1>
+            <h1 class="display-2 fw-bold">Benvenuto nella sezione Dedicata all'amministazione di Perfume App</h1>
             <p class="lead text-muted">Per proseguire clicca su Login o Registrati.</p>
         </div>
         <div class="d-flex gap-3">

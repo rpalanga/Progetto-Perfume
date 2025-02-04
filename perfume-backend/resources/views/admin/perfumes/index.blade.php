@@ -17,12 +17,15 @@
 
                         </a>
                         @else
-                            <img src="https://via.placeholder.com/300" class="card-img-top" alt="Immagine non disponibile">
+                            <img src="https://via.placeholder.com/600" class="card-img-top" alt="Immagine non disponibile">
                         @endif
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $perfume->name }}</h5>
-                            <p class="card-text">{{ $perfume->description ?? 'Nessuna descrizione disponibile' }}</p>
-                            <p class="card-text"><strong>Brand:</strong> {{ $perfume->brand->name }}</p>
+                        <div class="card-body ">
+                            <a class="text-decoration-none text-black" href="{{route('admin.perfumes.show',$perfume->id)}}">
+                                <h5 class="card-title fw-bolder">{{ $perfume->name }}</h5>
+                                <p class="card-text">{{ $perfume->description ?? 'Nessuna descrizione disponibile' }}</p>
+                                <p class="card-text"><strong>Brand:</strong> {{ $perfume->brand->name }}</p>
+
+                            </a>
                         </div>
                     </div>
                 </div>
