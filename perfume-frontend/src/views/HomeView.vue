@@ -49,16 +49,17 @@
   <div>
     
     <div id="main-cont" class="container">
-      <h1 class="my-4 text-center">Il Nostro Catagolo</h1>
+      <h1 class="my-4 text-center fs-3">Il Nostro Catalogo</h1>
       <input v-model="searchQuery" type="text" class="form-control mb-4" placeholder="Cerca il tuo Profumo" />
       <div v-if="loading">Caricamento...</div>
       <div v-else>
-        <div class="perfume-grid">
+        <div v-if="filteredPerfumes.length === 0" class="text-center">
+          Ops...Questo Profumo non è nel Catalogo
+        </div>
+        <div v-else class="perfume-grid">
           <div v-for="perfume in filteredPerfumes" :key="perfume.id" class="perfume-item">
-            
             <PerfumeItem :perfume="perfume" />
           </div>
-
         </div>
       </div>
     </div>
@@ -98,6 +99,12 @@ input {
   padding: 10px;
   background-color: #f9f9f9;
   width: 100%;
+}
+.text-center {
+  text-align: center;
+  font-size: 1.2em;
+  color: #666;
+  padding: 20px;
 }
 
 /* Media query per schermi grandi (desktop) */

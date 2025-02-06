@@ -7,6 +7,7 @@
         <img src="{{$perfume->img}}" class="card-img-top" alt="immagine">
         <div class="card-body">
             <h5 class="card-title">Nome del profumo: {{ $perfume->name }}</h5>
+            <h6 class=" card-subtitle">Brand: {{ $perfume->brand->name }}</h6>
             <p class="card-text">Descrizione:<br>{{ $perfume->description }}</p>
             
         </div>

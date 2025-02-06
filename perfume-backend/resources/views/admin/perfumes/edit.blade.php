@@ -43,6 +43,22 @@
             @enderror
         </div>
 
+        <div class="mb-3">
+            <label for="brand_id" class="form-label">Seleziona il Brand</label>
+            <select class="form-select @error('brand_id') is-invalid @enderror" id="brand_id" name="brand_id" required>
+                @foreach($brands as $brand)
+                    <option value="{{ $brand->id }}" {{ old('brand_id') == $brand->id ? 'selected' : '' }}>
+                        {{ $brand->name }}
+                    </option>
+                @endforeach
+            </select>
+            @error('brand_id')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+
         <button type="submit" class="btn btn-primary">Modifica Prodotto</button>
 
     </form>
