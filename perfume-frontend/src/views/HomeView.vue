@@ -54,7 +54,7 @@
       <div v-if="loading">Caricamento...</div>
       <div v-else>
         <div v-if="filteredPerfumes.length === 0" class="text-center">
-          Ops...Questo Profumo non è nel Catalogo
+          Siamo Spiacenti <br>questo Profumo non è nel Catalogo
         </div>
         <div v-else class="perfume-grid">
           <div v-for="perfume in filteredPerfumes" :key="perfume.id" class="perfume-item">
@@ -77,8 +77,8 @@ input {
 #main-cont{
  /* display: grid; */
  /* da guardare meglio domani  */
- max-width: 1200px; /* Imposta una larghezza massima per il contenitore */
- margin: 0 auto; /* Centra il contenitore */
+ max-width: 1200px; 
+ margin: 0 auto; 
 
   
 }
@@ -94,7 +94,7 @@ input {
 }
 
 .perfume-item {
-  /* border: 1px solid #ddd; Stile opzionale per ogni elemento */
+ 
   border-radius: 8px;
   padding: 10px;
   background-color: #f9f9f9;
